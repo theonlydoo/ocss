@@ -16,9 +16,8 @@ Shared:
   - grep
 
 Linux:
-  - scrot
   - notify-send
-  - xclip
+  - gnome-screenshot
 
 OS X:
   - terminal-notifier
@@ -28,6 +27,9 @@ OS X:
 
 Instructions:
 -------------
+
+*Forked from https://github.com/rage311/ocss*
+
 
 Get ocss.sh by either cloning this repo or downloading the zip.
 Edit the CONFIG portion of ocss.sh and fill in your details/preferences.  By default, it's setup to save screenshots locally to $HOME/Pictures/ocss (config setting: file_dir), so either change that to a directory that exists or create that directory.  Also by default, it will upload the screenshots to a folder named "ocss" in your Owncloud root (config setting: oc_ocss_dir_name)... make sure that exists.  The default open command that opens a browser to display your new upload is chromium (config setting: open_command).
