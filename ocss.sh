@@ -9,17 +9,17 @@
 ############# CONFIG ############
 
 # owncloud username
-username='yourusername'
+username='changeme'
 # owncloud password
-password='yourpassword'
+password='changeme'
 
 # base url of the owncloud server
-oc_base="http://www.example.com/owncloud"
+oc_base="https://owncloud.changeme"
 # directory name where you want the screenshots uploaded
-oc_ocss_dir_name="ocss"
+oc_ocss_dir_name="Screenshots"
 # local path and filename of an icon you would like to use
 # for desktop notifications
-oc_icon_path="$HOME/Pictures/ocss/owncloud_logo.png"
+oc_icon_path="$HOME/Images/ocss/owncloud_logo.png"
 
 # also save screenshot locally
 save_file="true"
@@ -27,7 +27,7 @@ save_file="true"
 file_prefix="ocss_"
 # where to save pictures locally (used as temp storage for
 # upload even if $save_file is "false"
-file_dir="$HOME/Pictures/ocss"
+file_dir="$HOME/Images/ocss"
 # command to run to edit screenshot before upload
 # leave commented out to disable functionality
 #edit_command="kolourpaint %img"
@@ -85,9 +85,9 @@ function take_screenshot() {
   echo "Please select area"
   is_mac || sleep 0.1 # https://bbs.archlinux.org/viewtopic.php?pid=1246173#p1246173
 
-  if ! (scrot -s "$1" &>/dev/null || screencapture -s "$1" &>/dev/null); then #takes a screenshot with selection
+  if ! (gnome-screenshot -a -f "$1" &>/dev/null || gnome-screenshot -a -f "$1" &>/dev/null); then #takes a screenshot with selection
     echo "Couldn't make selective shot (mouse trapped?). Trying to grab active window instead"
-    if ! (scrot -u "$1" &>/dev/null || screencapture -oWa "$1" &>/dev/null); then
+    if ! (gnome-screenshot -wb -f "$1" &>/dev/null || gnome-screenshot -wb -f "$1" &>/dev/null); then
       echo "Error for image '$1'!" >> "$log_file"
       echo "Error for image '$1'!"
       notify error "Something went wrong :(" "Information has been logged"
