@@ -16,14 +16,10 @@ Shared:
   - grep
 
 Linux:
-  - scrot
+  - gnome-screenshot
   - notify-send
-  - xclip
+  - shutter
 
-OS X:
-  - terminal-notifier
-  - screencapture
-  - pbcopy
 
 
 Instructions:
