@@ -31,9 +31,9 @@ file_prefix="ocss_"
 # where to save pictures locally (used as temp storage for
 # upload even if $save_file is "false"
 file_dir="$HOME/Images/ocss"
-# command to run to edit screenshot before upload
+# command to run to #edit screenshot before upload
 # leave commented out to disable functionality
-#edit_command="kolourpaint %img"
+#edit_command="shutter"
 
 # timeout on upload connection in seconds
 upload_connect_timeout="5"
@@ -150,9 +150,9 @@ else # upload file, no screenshot
 fi
 
 if [ ! -z "$edit_command" ]; then
-  edit_command=${edit_command/\%img/$img_file}
+  edit_command=${edit_command}
   echo "Opening editor '$edit_command'"
-  $edit_command
+  $edit_command ${img_file}
 fi
 
 # check file exists
@@ -160,7 +160,8 @@ if [ ! -f "$img_file" ]; then
   echo "file '$img_file' doesn't exist!"
   exit 1
 fi
-
+echo "$img_file"
+shutter -e -n --disable_systray "$file_dir/$img_file"
 upload_image "$img_file"
 
 if [ "$save_file" = "false" ]; then
