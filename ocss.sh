@@ -143,7 +143,8 @@ if [ -z "$1" ]; then # screenshot
   cd $file_dir
 
   #filename with date
-  img_file="${file_prefix}$(date +"%Y-%m-%d_%H.%M.%S.png")"
+  # img_file="${file_prefix}$(date +"%Y-%m-%d_%H.%M.%S.png")"
+  img_file="$(pwgen -s 25).png"
   take_screenshot "$img_file"
 else # upload file, no screenshot
   img_file="$1"

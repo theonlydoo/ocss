@@ -19,6 +19,7 @@ Linux:
   - gnome-screenshot
   - notify-send
   - shutter
+  - pwgen for filename
 
 
 
